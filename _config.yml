@@ -1,0 +1,27 @@
+title: Book Hub
+description: >-
+  A personal book discovery and review website. Explore curated titles,
+  read honest reviews, and find your next great read.
+baseurl: ""
+url: "https://angelnicole.github.io"
+
+theme: jekyll-theme-cayman
+
+markdown: kramdown
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+
+header_pages:
+  - index.md
+  - about.md
+  - favorites.md
+  - reviews.md
+  - genres.md
+  - contact.md
