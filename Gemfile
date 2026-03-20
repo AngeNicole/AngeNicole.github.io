@@ -1,7 +1,11 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 3.10"
-gem "github-pages", group: :jekyll_plugins
+gem "jekyll", "~> 4.3"
+gem "jekyll-theme-cayman", git: "https://github.com/pages-themes/cayman.git"
+gem "jekyll-remote-theme"
+gem "base64"
+gem "csv"
+gem "bigdecimal"
 
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
