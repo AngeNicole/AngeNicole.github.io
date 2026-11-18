@@ -1,7 +1,6 @@
 _site/
-.sass-cache/
 .jekyll-cache/
-.jekyll-metadata
-Gemfile.lock
-vendor/
-.bundle/
+node_modules/
+web/node_modules/
+web/dist/
+web/.astro/

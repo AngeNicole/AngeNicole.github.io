@@ -1,0 +1,188 @@
+---
+/**
+ * The front door. Someone typing "angenicole.github.io" lands here, so its one
+ * job is to say who this is and point at the work, in that order.
+ *
+ * Only live, visitable things are listed. Nothing here claims client work:
+ * both projects are self-initiated, and say so.
+ */
+const work = [
+  {
+    title: 'NERO',
+    kind: 'Self-initiated concept',
+    blurb:
+      'A furniture house founded in 2026 with no heritage to sell, so it sells the light instead. Every collection ships with the lamp designed for it.',
+    links: [
+      { label: 'The site', href: 'https://angenicole.github.io/nero-site/' },
+      { label: 'Brand guidelines, 34 pages', href: 'https://angenicole.github.io/nero-site/guidelines.html' },
+    ],
+  },
+  {
+    title: 'Prime Couture',
+    kind: 'Self-initiated concept, not affiliated',
+    blurb:
+      'A revamp of a Kigali atelier: the lookbook, the fitting, and ordering over the channels people here actually use.',
+    links: [{ label: 'The site', href: 'https://angenicole.github.io/prime-couture/' }],
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nicole Mukundwa</title>
+    <meta
+      name="description"
+      content="Nicole Mukundwa, product designer in Kigali. Brand, product and the quiet details that make a thing feel finished."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+
+  <body>
+    <main>
+      <header class="intro">
+        <h1>Nicole Mukundwa</h1>
+        <p class="role">Product designer, Kigali</p>
+        <p class="line">
+          I work on the quiet details, the ones nobody points at, until a thing
+          feels finished rather than assembled.
+        </p>
+      </header>
+
+      <section class="work" aria-label="Work">
+        {
+          work.map((w) => (
+            <article class="item">
+              <div class="head">
+                <h2>{w.title}</h2>
+                <p class="kind">{w.kind}</p>
+              </div>
+              <p class="blurb">{w.blurb}</p>
+              <p class="links">
+                {w.links.map((l) => (
+                  <a href={l.href}>
+                    {l.label}
+                    <span aria-hidden="true"> &#8599;</span>
+                  </a>
+                ))}
+              </p>
+            </article>
+          ))
+        }
+      </section>
+
+      <footer>
+        <a href="https://github.com/AngeNicole">GitHub</a>
+        <span>Kigali, Rwanda</span>
+      </footer>
+    </main>
+
+    <style>
+      :root {
+        --paper: #ffffff;
+        --ink: #0b0b0b;
+        --muted: #6a6a6a;
+        --line: rgba(11, 11, 11, 0.14);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --paper: #0b0b0b;
+          --ink: #f4f4f4;
+          --muted: #9a9a9a;
+          --line: rgba(244, 244, 244, 0.16);
+        }
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font: 400 17px/1.55 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      main {
+        max-width: 46rem;
+        margin: 0 auto;
+        padding: clamp(3.5rem, 12vh, 8rem) clamp(1.1rem, 5vw, 2rem) 4rem;
+      }
+
+      .intro h1 {
+        margin: 0;
+        font-size: clamp(2.2rem, 7vw, 3.4rem);
+        letter-spacing: -0.035em;
+        line-height: 1.04;
+      }
+      .role {
+        margin: 0.5rem 0 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        letter-spacing: 0.02em;
+      }
+      .line {
+        margin: 1.6rem 0 0;
+        max-width: 34ch;
+        font-size: clamp(1.05rem, 2.6vw, 1.2rem);
+      }
+
+      .work { margin-top: clamp(3rem, 9vh, 5rem); }
+      .item {
+        padding: 1.9rem 0;
+        border-top: 1px solid var(--line);
+      }
+      .head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.75rem;
+      }
+      .item h2 {
+        margin: 0;
+        font-size: 1.35rem;
+        letter-spacing: -0.015em;
+      }
+      .kind {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.78rem;
+        letter-spacing: 0.04em;
+      }
+      .blurb {
+        margin: 0.7rem 0 0;
+        max-width: 54ch;
+        color: var(--muted);
+      }
+      .links {
+        margin: 1rem 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.4rem;
+      }
+      .links a {
+        color: var(--ink);
+        text-decoration: none;
+        font-size: 0.95rem;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 2px;
+        transition: border-color 0.25s ease;
+      }
+      .links a:hover,
+      .links a:focus-visible { border-bottom-color: currentColor; }
+
+      footer {
+        margin-top: clamp(3rem, 9vh, 5rem);
+        padding-top: 1.4rem;
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+      footer a { color: inherit; }
+    </style>
+  </body>
+</html>
